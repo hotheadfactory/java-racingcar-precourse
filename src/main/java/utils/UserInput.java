@@ -13,12 +13,12 @@ public class UserInput {
 
     public static List<Car> inputCars() {
         Output.printCarNameInputGuide();
-        String[] carNames = SCANNER.nextLine().split(",");
-        List<Car> cars = new ArrayList<>();
+        String[] carNames = SCANNER.nextLine().trim().replace(" ", "").split(",");
+        List<Car> racingCars = new ArrayList<>();
         for(String carName : carNames) {
-            cars.add(new Car(carName));
+            racingCars.add(new Car(carName));
         }
-        return cars;
+        return racingCars;
     }
 
     public static int inputTurnCount() {
