@@ -17,10 +17,14 @@ public class Verify {
 
     public static void verifyRacingCarName(List<Car> racingCars) {
         for (Car oneCar : racingCars) {
-            String name = oneCar.getName();
-            if (name.length() == 0 || name.length() > MAX_NAME_LENGTH) {
-                throw new IllegalArgumentException();
-            }
+            verifyOneCarName(oneCar);
+        }
+    }
+
+    private static void verifyOneCarName(Car oneCar) {
+        String name = oneCar.getName();
+        if (name.length() == 0 || name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException();
         }
     }
 
