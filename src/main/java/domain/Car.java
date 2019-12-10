@@ -8,5 +8,13 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    // 이 위로 손대지 말 것
+
+    private void proceed() {
+        position++;
+    }
+
+    public String getName() {
+        return this.name;
+    }
 }
