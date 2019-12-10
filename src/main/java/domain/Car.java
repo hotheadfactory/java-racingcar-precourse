@@ -1,3 +1,10 @@
+/**
+ * Car.java
+ * 자동차 객체의 클래스
+ * 우아한테크코스 프리코스 2주차 복습
+ * Original code https://github.com/hotheadfactory/java-racingcar-precourse
+ * Version: v0.0.2, 2019.12.11 (c) 정회형
+ */
 package domain;
 
 import java.util.Random;
