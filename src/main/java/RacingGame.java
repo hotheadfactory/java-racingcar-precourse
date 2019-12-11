@@ -8,7 +8,6 @@
 
 import domain.Car;
 import utils.Output;
-
 import java.util.ArrayList;
 import java.util.List;
 
