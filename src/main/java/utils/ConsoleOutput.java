@@ -11,7 +11,7 @@ import domain.Car;
 
 import java.util.List;
 
-public class Output {
+public class ConsoleOutput {
     private static final String BAR = "-";
     private static final String COMMA = ", ";
 
@@ -23,12 +23,8 @@ public class Output {
         System.out.println("시도할 횟수는 몇회인가요?");
     }
 
-    public static void printWrongName() {
-        System.out.println("이름 란은 5글자를 넘기거나 비어있을 수 없습니다!");
-    }
-
-    public static void printNumberOnly() {
-        System.out.println("음수나 숫자가 아닌 텍스트는 입력할 수 없습니다!");
+    public static void printError(String error) {
+        System.out.println(error);
     }
 
     public static void printGameResultTitle() {

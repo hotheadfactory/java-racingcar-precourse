@@ -7,7 +7,7 @@
  */
 
 import domain.Car;
-import utils.Output;
+import utils.ConsoleOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,17 +24,17 @@ public class RacingGame {
     }
 
     public void playGame() {
-        Output.printGameResultTitle();
+        ConsoleOutput.printGameResultTitle();
         for (int i = 0; i < turnCount; i++) {
             playOneTurn();
-            Output.printOneNewLine();
+            ConsoleOutput.printOneNewLine();
         }
     }
 
     private void playOneTurn() {
         for (Car oneCar : racingCars) {
             oneCar.playTurn();
-            Output.printRacingCarProgress(oneCar);
+            ConsoleOutput.printRacingCarProgress(oneCar);
         }
     }
 
@@ -43,7 +43,7 @@ public class RacingGame {
         for (Car oneCar : racingCars) {
             checkWinner(oneCar);
         }
-        Output.printWinners(winners);
+        ConsoleOutput.printWinners(winners);
     }
 
     public void getHighScore() {

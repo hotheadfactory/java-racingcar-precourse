@@ -17,7 +17,7 @@ public class UserInput {
     private static final Scanner SCANNER = new Scanner(System.in);
 
     public static List<Car> inputCars() {
-        Output.printCarNameInputGuide();
+        ConsoleOutput.printCarNameInputGuide();
         String[] carNames = SCANNER.nextLine().trim().replace(" ", "").split(",");
         List<Car> racingCars = new ArrayList<>();
         for (String carName : carNames) {
@@ -28,7 +28,7 @@ public class UserInput {
     }
 
     public static int inputTurnCount() {
-        Output.printInputTurnCountGuide();
+        ConsoleOutput.printInputTurnCountGuide();
         int turnCount = SCANNER.nextInt();
         Verify.verifyTurnCountIsNatural(turnCount);
         return turnCount;
