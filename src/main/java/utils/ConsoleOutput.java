@@ -12,7 +12,7 @@ import domain.Car;
 import java.util.List;
 
 public class ConsoleOutput {
-    private static final String BAR = "-";
+    private static final String PROGRESS_BAR = "-";
     private static final String COMMA = ", ";
 
     public static void printCarNameInputGuide() {
@@ -39,7 +39,7 @@ public class ConsoleOutput {
         String bar = "";
 
         for (int i = 0; i < car.getPosition(); i++) {
-            bar += BAR;
+            bar += PROGRESS_BAR;
         }
         return bar;
     }
@@ -49,17 +49,7 @@ public class ConsoleOutput {
     }
 
     public static void printWinners(List<String> winners) {
-        for (int i = 0; i < winners.size(); i++) {
-            System.out.printf("%s", winners.get(i));
-            putComma(winners, i);
-        }
-        System.out.printf("님이 최종 우승했습니다.\n");
-    }
-
-    private static void putComma(List<String> list, int i) {
-        if (i != list.size() - 1) {
-            System.out.printf(COMMA);
-        }
+        System.out.println(String.join(",", winners)+"님이 최종 우승했습니다.");
     }
 
 

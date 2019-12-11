@@ -8,8 +8,11 @@
 
 import domain.Car;
 import utils.ConsoleOutput;
+import utils.RandomGenerator;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class RacingGame {
     private final List<Car> racingCars;
@@ -33,8 +36,14 @@ public class RacingGame {
 
     private void playOneTurn() {
         for (Car oneCar : racingCars) {
-            oneCar.playTurn();
+            playEachTurn(oneCar);
             ConsoleOutput.printRacingCarProgress(oneCar);
+        }
+    }
+
+    public void playEachTurn(Car oneCar) {
+        if(RandomGenerator.decideProceedOrNot()) {
+            oneCar.proceed();
         }
     }
 
