@@ -10,6 +10,7 @@ package domain;
 import java.util.Random;
 
 public class Car {
+
     private final String name;
     private int position = 0;
 
@@ -31,4 +32,5 @@ public class Car {
     public int getPosition() {
         return this.position;
     }
+
 }
