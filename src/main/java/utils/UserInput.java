@@ -7,10 +7,7 @@
  */
 package utils;
 
-import domain.Car;
-
-import java.util.ArrayList;
-import java.util.InputMismatchException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,14 +15,12 @@ public class UserInput {
     private static final Scanner SCANNER = new Scanner(System.in);
 
 
-    public static String[] inputCars() {
-        ConsoleOutput.printCarNameInputGuide();
-        String[] carNames = SCANNER.nextLine().trim().replace(" ", "").split(",");
+    public static List<String> inputCarsName() {
+        List<String> carNames = Arrays.asList(SCANNER.nextLine().trim().replace(" ", "").split(","));
         return carNames;
     }
 
     public static int inputTurnCount() {
-        ConsoleOutput.printInputTurnCountGuide();
         int turnCount = SCANNER.nextInt();
         return turnCount;
     }

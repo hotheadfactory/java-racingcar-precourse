@@ -10,13 +10,10 @@ import utils.ConsoleOutput;
 
 import java.util.InputMismatchException;
 
-import static utils.UserInput.inputCars;
-import static utils.UserInput.inputTurnCount;
-
 public class Client {
     public static void main(String[] args) {
         try {
-            RacingGame racingGame = new RacingGame(inputCars(), inputTurnCount());
+            RacingGame racingGame = new RacingGame();
             racingGame.playGame();
             racingGame.displayResult();
         } catch (IllegalArgumentException e) {

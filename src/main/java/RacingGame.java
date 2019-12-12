@@ -9,11 +9,11 @@
 import domain.Car;
 import utils.ConsoleOutput;
 import utils.RandomGenerator;
+import utils.UserInput;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
-import java.util.Random;
 
 public class RacingGame {
     private static final int MAX_NAME_LENGTH = 5;
@@ -21,16 +21,21 @@ public class RacingGame {
     private final List<Car> racingCars = new ArrayList<>();
     private final int turnCount;
 
-    private int highScore = 0;
-    private List<String> winners = new ArrayList<>();
+    //private int highScore = 0;
+    //private List<String> winners = new ArrayList<>();
 
-    public RacingGame(String[] racingCarsName, int turnCount) {
-        for (String carName : racingCarsName) {
-            verifyCarName(carName);
-            racingCars.add(new Car(carName));
-        }
-        this.turnCount = turnCount;
+    public RacingGame() {
+        ConsoleOutput.printCarNameInputGuide();
+        UserInput.inputCarsName().stream()
+                .forEach(x -> addCar(x));
+        ConsoleOutput.printInputTurnCountGuide();
+        this.turnCount = UserInput.inputTurnCount();
         verifyTurnCountIsNatural();
+    }
+
+    private void addCar(String carName) {
+        verifyCarName(carName);
+        racingCars.add(new Car(carName));
     }
 
     private void verifyCarName(String name) {
@@ -67,14 +72,14 @@ public class RacingGame {
     }
 
     public void displayResult() {
-        getHighScore();
+        int highScore = findHighScore();
         for (Car oneCar : racingCars) {
             checkWinner(oneCar);
         }
         ConsoleOutput.printWinners(winners);
     }
 
-    public void getHighScore() {
+    public void findHighScore() {
         for (Car oneCar : racingCars) {
             checkHighScore(oneCar);
         }
