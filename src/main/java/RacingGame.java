@@ -21,9 +21,6 @@ public class RacingGame {
     private final List<Car> racingCars = new ArrayList<>();
     private final int turnCount;
 
-    //private int highScore = 0;
-    //private List<String> winners = new ArrayList<>();
-
     public RacingGame() {
         ConsoleOutput.printCarNameInputGuide();
         UserInput.inputCarsName().stream()
@@ -66,34 +63,38 @@ public class RacingGame {
     }
 
     public void playEachTurn(Car oneCar) {
-        if(RandomGenerator.decideProceedOrNot()) {
+        if (RandomGenerator.decideProceedOrNot()) {
             oneCar.proceed();
         }
     }
 
     public void displayResult() {
         int highScore = findHighScore();
+        List<String> winners = new ArrayList<>();
         for (Car oneCar : racingCars) {
-            checkWinner(oneCar);
+            checkWinner(oneCar, highScore, winners);
         }
         ConsoleOutput.printWinners(winners);
     }
 
-    public void findHighScore() {
+    public int findHighScore() {
+        int highScore = 0;
         for (Car oneCar : racingCars) {
-            checkHighScore(oneCar);
+            highScore = checkHighScore(oneCar, highScore);
         }
+        return highScore;
     }
 
-    public void checkHighScore(Car car) {
+    public int checkHighScore(Car car, int highScore) {
         int position = car.getPosition();
         if (position > highScore) {
-            highScore = position;
+            return position;
         }
+        return highScore;
     }
 
-    private void checkWinner(Car car) {
-        if (car.getPosition() == highScore) {
+    private void checkWinner(Car car, int highScore, List<String> winners) {
+        if (car.isMaxPosition(highScore)) {
             winners.add(car.getName());
         }
     }

@@ -7,8 +7,6 @@
  */
 package domain;
 
-import java.util.Random;
-
 public class Car {
 
     private final String name;
@@ -31,6 +29,13 @@ public class Car {
 
     public int getPosition() {
         return this.position;
+    }
+
+    public boolean isMaxPosition(int highScore) {
+        if (this.position >= highScore) {
+            return true;
+        }
+        return false;
     }
 
 }
