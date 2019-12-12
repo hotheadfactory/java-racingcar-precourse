@@ -11,19 +11,38 @@ import utils.ConsoleOutput;
 import utils.RandomGenerator;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Random;
 
 public class RacingGame {
-    private final List<Car> racingCars;
+    private static final int MAX_NAME_LENGTH = 5;
+
+    private final List<Car> racingCars = new ArrayList<>();
     private final int turnCount;
 
     private int highScore = 0;
     private List<String> winners = new ArrayList<>();
 
-    public RacingGame(List<Car> racingCars, int turnCount) {
-        this.racingCars = racingCars;
+    public RacingGame(String[] racingCarsName, int turnCount) {
+        for (String carName : racingCarsName) {
+            verifyCarName(carName);
+            racingCars.add(new Car(carName));
+        }
         this.turnCount = turnCount;
+        verifyTurnCountIsNatural();
+    }
+
+    private void verifyCarName(String name) {
+        if (name.length() == 0 || name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void verifyTurnCountIsNatural() {
+        if (this.turnCount < 1) {
+            throw new InputMismatchException();
+        }
     }
 
     public void playGame() {

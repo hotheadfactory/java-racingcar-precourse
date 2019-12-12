@@ -16,35 +16,17 @@ import java.util.Scanner;
 
 public class UserInput {
     private static final Scanner SCANNER = new Scanner(System.in);
-    private static final int MAX_NAME_LENGTH = 5;
 
-    public static List<Car> inputCars() {
+
+    public static String[] inputCars() {
         ConsoleOutput.printCarNameInputGuide();
         String[] carNames = SCANNER.nextLine().trim().replace(" ", "").split(",");
-        List<Car> racingCars = new ArrayList<>();
-        for (String carName : carNames) {
-            verifyCarName(carName);
-            racingCars.add(new Car(carName));
-        }
-        return racingCars;
-    }
-
-    private static void verifyCarName(String name) {
-        if (name.length() == 0 || name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException();
-        }
+        return carNames;
     }
 
     public static int inputTurnCount() {
         ConsoleOutput.printInputTurnCountGuide();
         int turnCount = SCANNER.nextInt();
-        verifyTurnCountIsNatural(turnCount);
         return turnCount;
-    }
-
-    private static void verifyTurnCountIsNatural(int turnCount) {
-        if (turnCount < 1) {
-            throw new InputMismatchException();
-        }
     }
 }
