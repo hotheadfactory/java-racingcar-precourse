@@ -29,7 +29,7 @@ public class UserInput {
         return inputCarsName();
     }
 
-    public static int inputInt() {
+    public static int inputTurnCount() {
         System.out.println("시도할 횟수는 몇회인가요?");
         try {
             int turnCount =  SCANNER.nextInt();
@@ -39,7 +39,7 @@ public class UserInput {
             ConsoleOutput.printError("음수나 숫자가 아닌 텍스트는 입력할 수 없습니다!");
             SCANNER.nextLine();
         }
-        return inputInt();
+        return inputTurnCount();
     }
 
     private static void verifyCarName(String name) {

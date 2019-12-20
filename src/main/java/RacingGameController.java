@@ -24,7 +24,7 @@ public class RacingGameController {
     public RacingGameController() {
         UserInput.inputCarsName().stream()
                 .forEach(x -> addCar(x));
-        this.turnCount = UserInput.inputInt();
+        this.turnCount = UserInput.inputTurnCount();
     }
 
     private void addCar(String carName) {
