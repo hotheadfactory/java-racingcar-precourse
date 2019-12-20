@@ -6,7 +6,7 @@
  * Version: v0.0.2, 2019.12.11 (c) 정회형
  */
 
-import utils.ConsoleOutput;
+import view.ConsoleOutput;
 
 import java.util.InputMismatchException;
 

@@ -5,7 +5,7 @@
  * Original code https://github.com/hotheadfactory/java-racingcar-precourse
  * Version: v0.0.2, 2019.12.11 (c) 정회형
  */
-package utils;
+package domain;
 
 import java.util.Random;
 

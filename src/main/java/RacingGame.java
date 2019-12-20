@@ -7,9 +7,9 @@
  */
 
 import domain.Car;
-import utils.ConsoleOutput;
-import utils.RandomGenerator;
-import utils.UserInput;
+import view.ConsoleOutput;
+import domain.RandomGenerator;
+import view.UserInput;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
