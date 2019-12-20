@@ -46,7 +46,7 @@ public class RacingGameController {
         }
     }
 
-    public void playEachTurn(Car oneCar) {
+    private void playEachTurn(Car oneCar) {
         if (RandomGenerator.generateRandomNumber() >= LUCKY_NUMBER) {
             oneCar.proceed();
         }
@@ -61,7 +61,7 @@ public class RacingGameController {
         ConsoleOutput.printWinners(winners);
     }
 
-    public int findHighScore() {
+    private int findHighScore() {
         int highScore = 0;
         for (Car oneCar : racingCars) {
             highScore = checkHighScore(oneCar, highScore);
@@ -69,7 +69,7 @@ public class RacingGameController {
         return highScore;
     }
 
-    public int checkHighScore(Car car, int highScore) {
+    private int checkHighScore(Car car, int highScore) {
         int position = car.getPosition();
         if (position > highScore) {
             return position;
