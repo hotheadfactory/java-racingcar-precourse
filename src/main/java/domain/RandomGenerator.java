@@ -10,10 +10,10 @@ package domain;
 import java.util.Random;
 
 public class RandomGenerator {
-    private static final int LUCKY_NUMBER = 4;
 
-    public static boolean decideProceedOrNot() {
+
+    public static int generateRandomNumber() {
         Random random = new Random();
-        return random.nextInt(10) >= LUCKY_NUMBER;
+        return random.nextInt(10);
     }
 }

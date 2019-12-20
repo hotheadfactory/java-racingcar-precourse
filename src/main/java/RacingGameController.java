@@ -15,36 +15,20 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 
-public class RacingGame {
-    private static final int MAX_NAME_LENGTH = 5;
+public class RacingGameController {
+    private static final int LUCKY_NUMBER = 4;
 
     private final List<Car> racingCars = new ArrayList<>();
     private final int turnCount;
 
-    public RacingGame() {
-        ConsoleOutput.printCarNameInputGuide();
+    public RacingGameController() {
         UserInput.inputCarsName().stream()
                 .forEach(x -> addCar(x));
-        ConsoleOutput.printInputTurnCountGuide();
-        this.turnCount = UserInput.inputTurnCount();
-        verifyTurnCountIsNatural();
+        this.turnCount = UserInput.inputInt();
     }
 
     private void addCar(String carName) {
-        verifyCarName(carName);
         racingCars.add(new Car(carName));
-    }
-
-    private void verifyCarName(String name) {
-        if (name.length() == 0 || name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    private void verifyTurnCountIsNatural() {
-        if (this.turnCount < 1) {
-            throw new InputMismatchException();
-        }
     }
 
     public void playGame() {
@@ -63,7 +47,7 @@ public class RacingGame {
     }
 
     public void playEachTurn(Car oneCar) {
-        if (RandomGenerator.decideProceedOrNot()) {
+        if (RandomGenerator.generateRandomNumber() >= LUCKY_NUMBER) {
             oneCar.proceed();
         }
     }

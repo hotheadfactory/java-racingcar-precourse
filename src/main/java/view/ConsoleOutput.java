@@ -13,15 +13,7 @@ import java.util.List;
 
 public class ConsoleOutput {
     private static final String PROGRESS_BAR = "-";
-    private static final String COMMA = ", ";
-
-    public static void printCarNameInputGuide() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-    }
-
-    public static void printInputTurnCountGuide() {
-        System.out.println("시도할 횟수는 몇회인가요?");
-    }
+    private static final String TEXT_SPLITTER = ", ";
 
     public static void printError(String error) {
         System.out.println(error);
@@ -49,7 +41,7 @@ public class ConsoleOutput {
     }
 
     public static void printWinners(List<String> winners) {
-        System.out.println(String.join(",", winners)+"님이 최종 우승했습니다.");
+        System.out.println(String.join(TEXT_SPLITTER, winners)+"님이 최종 우승했습니다.");
     }
 
 
